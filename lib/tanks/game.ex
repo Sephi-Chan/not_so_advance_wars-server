@@ -230,10 +230,14 @@ defmodule Tanks.Game do
 
 
   def handle_call({:player_leaves_game, player_id, _reason}, _from, game) do
-    leaving_player   = game.player_1 == player_id && :player_1 || :player_2
-    remaining_player = leaving_player == :player_1 && :player_2 || :player_1
+    if game.winner == nil do
+      leaving_player   = game.player_1 == player_id && :player_1 || :player_2
+      remaining_player = leaving_player == :player_1 && :player_2 || :player_1
 
-    Players.notify(game[remaining_player], "player_left", %{winner: remaining_player})
-    {:stop, :shutdown, :ok, put_in(game.winner, remaining_player)}
+      Players.notify(game[remaining_player], "player_left", %{winner: remaining_player})
+      {:stop, :shutdown, :ok, put_in(game.winner, remaining_player)}
+    else
+      {:stop, :shutdown, :ok, game}
+    end
   end
 end

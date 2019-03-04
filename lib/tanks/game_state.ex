@@ -32,7 +32,7 @@ defmodule Tanks.GameState do
 
   def move_unit(game, unit, [x, y]) do
     {_, game} = pop_in(game, [:units, "#{unit.x}_#{unit.y}"])
-    fired = unit.unit_type_id != "artillery"
+    fired = unit.unit_type_id == "artillery"
     unit  = Map.merge(unit, %{x: x, y: y, moved: true, fired: fired})
     put_in(game, [:units, "#{x}_#{y}"], unit)
   end

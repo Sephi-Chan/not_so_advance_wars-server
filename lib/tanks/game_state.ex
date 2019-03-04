@@ -32,7 +32,8 @@ defmodule Tanks.GameState do
 
   def move_unit(game, unit, [x, y]) do
     {_, game} = pop_in(game, [:units, "#{unit.x}_#{unit.y}"])
-    unit = Map.merge(unit, %{x: x, y: y, moved: true})
+    fired = unit.unit_type_id != "artillery"
+    unit  = Map.merge(unit, %{x: x, y: y, moved: true, fired: fired})
     put_in(game, [:units, "#{x}_#{y}"], unit)
   end
 
@@ -78,7 +79,7 @@ defmodule Tanks.GameState do
     remaining_attacker_count = max(attacking_unit.count - attacker_losses, 0)
 
     attacking_unit_after = Map.merge(attacking_unit, %{
-      ammo:  attacker_weapon == :main_weapon and attacking_unit.ammo - 1 || attacking_unit.ammo,
+      # ammo:  attacker_weapon == :main_weapon and attacking_unit.ammo - 1 || attacking_unit.ammo,
       count: remaining_attacker_count,
       moved: true,
       fired: true
@@ -92,7 +93,7 @@ defmodule Tanks.GameState do
     end
 
     target_unit_after = Map.merge(target_unit, %{
-      ammo:  target_weapon == :main_weapon and target_unit.ammo - 1 || target_unit.ammo,
+      # ammo:  target_weapon == :main_weapon and target_unit.ammo - 1 || target_unit.ammo,
       count: remaining_target_count
     })
 

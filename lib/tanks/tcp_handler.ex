@@ -85,7 +85,7 @@ defmodule Tanks.TcpHandler do
 
   defp apply("player_leaves_game", _data, _socket, state) do
     game = Games.game_for_player(state.player_id)
-    Game.player_leaves_game(game.id, state.player_id, :soft)
+    if game do Game.player_leaves_game(game.id, state.player_id, :soft) end
     state
   end
 

@@ -19,7 +19,7 @@ defmodule Tanks.UnitType do
     %{
       id: "artillery",
       name: "Artillery",
-      move: 5,
+      move: 7,
       max_fuel: 50,
       vision: 3,
       main_weapon: :mortar,
@@ -35,7 +35,7 @@ defmodule Tanks.UnitType do
     %{
       id: "tank",
       name: "Tank",
-      move: 6,
+      move: 7,
       max_fuel: 70,
       vision: 3,
       main_weapon: :light_cannon,

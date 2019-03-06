@@ -67,7 +67,7 @@ defmodule Tanks.Board do
 
 
   def defense_bonus(:plain), do: 0
-  def defense_bonus(:forest), do: 0.3
+  def defense_bonus(:forest), do: 0.2
   def defense_bonus(:hills), do: 0.4
   def defense_bonus(:mountains), do: 0.4
 end

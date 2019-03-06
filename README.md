@@ -16,7 +16,7 @@ Une fois Elixir installé, on clône le dépôt du serveur, on télécharge les 
 ```
 git clone https://github.com/Sephi-Chan/not_so_advance_wars-server.git && cd not_so_advance_wars-server
 mix deps.get && MIX_ENV=prod mix release --env=prod
-_build/prod/rel/jam_19_tanks/bin/jam_19_tanks start
+_build/prod/rel/not_so_advance_wars/bin/not_so_advance_wars start
 ```
 
 Il n'y a plus qu'à modifier la variable `server_ip` du [client Lua/LÖVE](https://github.com/Sephi-Chan/not_so_advance_wars-client/blob/master/main.lua#L10) pour qu'il pointe vers votre serveur. :)

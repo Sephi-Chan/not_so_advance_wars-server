@@ -46,10 +46,9 @@ end
 # when running `mix release`, the first release in the file
 # will be used by default
 
-release :jam_19_tanks do
-  set version: current_version(:jam_19_tanks)
+release :not_so_advance_wars do
+  set version: current_version(:not_so_advance_wars)
   set applications: [
     :runtime_tools
   ]
 end
-

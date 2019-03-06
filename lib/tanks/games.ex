@@ -28,22 +28,23 @@ defmodule Tanks.Games do
 
 
   def seed() do
-    Task.async(fn ->
-      IO.inspect("Seed game...")
-      mac = "SephiChanMac"
-      win = "SephiChanWindows"
+    # Task.async(fn ->
+    #   IO.inspect("Seed game...")
 
-      {:ok, lobby_id} = Tanks.Lobbies.open(mac, Tanks.Board.get(1))
-      {:ok, game_id} = Tanks.Lobbies.add_player(lobby_id, win)
-      Tanks.Game.player_buys_unit(game_id, mac, "medium_tank", [5,5])
-      Tanks.Game.player_buys_unit(game_id, mac, "artillery", [5,3])
-      Tanks.Game.player_buys_unit(game_id, mac, "recon", [5,2])
-      Tanks.Game.player_buys_unit(game_id, mac, "tank", [4,3])
-      Tanks.Game.player_ends_turn(game_id, mac)
+    #   mac = "SephiChanMac"
+    #   win = "SephiChanWindows"
 
-      Tanks.Game.player_buys_unit(game_id, win, "recon", [6,3])
-      Tanks.Game.player_ends_turn(game_id, win)
-    end)
+    #   {:ok, lobby_id} = Tanks.Lobbies.open(mac, Tanks.Board.get(1))
+    #   {:ok, game_id} = Tanks.Lobbies.add_player(lobby_id, win)
+    #   Tanks.Game.player_buys_unit(game_id, mac, "medium_tank", [5,5])
+    #   Tanks.Game.player_buys_unit(game_id, mac, "artillery", [5,3])
+    #   Tanks.Game.player_buys_unit(game_id, mac, "recon", [5,2])
+    #   Tanks.Game.player_buys_unit(game_id, mac, "tank", [4,3])
+    #   Tanks.Game.player_ends_turn(game_id, mac)
+
+    #   Tanks.Game.player_buys_unit(game_id, win, "recon", [6,3])
+    #   Tanks.Game.player_ends_turn(game_id, win)
+    # end)
   end
 
 

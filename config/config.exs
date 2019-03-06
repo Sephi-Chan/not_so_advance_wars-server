@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure your application as:
 #
-#     config :jam_19_tanks, key: :value
+#     config :not_so_advance_wars, key: :value
 #
 # and access this configuration in your application as:
 #
-#     Application.get_env(:jam_19_tanks, :key)
+#     Application.get_env(:not_so_advance_wars, :key)
 #
 # You can also configure a 3rd-party app:
 #
